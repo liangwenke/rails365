@@ -1,4 +1,7 @@
 .page-header
   h2 = @article.title
 div
+  - if session[:admin]
+    .text-right
+      = link_to "编辑", edit_admin_article_path(@article)
   = markdown @article.body
