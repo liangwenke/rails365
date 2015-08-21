@@ -2,20 +2,20 @@ development:
   adapter: postgresql
   host: localhost
   database: rails365_dev
-  username: macintosh1
+  username: postgres
   password: '12345678'
   encoding: UTF8
 production:
   adapter: postgresql
   host: localhost
   database: rails365_pro
-  username: macintosh1
+  username: postgres
   password: '12345678'
   encoding: UTF8
 test:
   adapter: postgresql
   host: localhost
   database: rails365_test
-  username: macintosh1
+  username: postgres
   password: '12345678'
   encoding: UTF8

@@ -1,5 +1,5 @@
 class Admin::ArticlesController < ApplicationController
-  USERS = { "yinsigan" => ENV['PASSWORD'] }
+  USERS = { ENV["USERNAME"] => ENV['PASSWORD'] }
  
   before_action :authenticate
   before_action :set_article, only: [:edit, :update, :destroy]
