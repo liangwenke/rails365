@@ -1,3 +1,4 @@
-h2 = @article.title
+.page-header
+  h2 = @article.title
 div
-  = @article.body
+  = markdown @article.body
