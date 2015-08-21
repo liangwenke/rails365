@@ -18,6 +18,8 @@ gem 'slim-rails', '~> 3.0.1'
 gem 'redcarpet', '~> 3.3.2'
 gem 'rouge', '~> 1.9.1'
 gem 'figaro'
+
+# for deploy
 gem 'mina', require: false
 
 group :development, :test do
