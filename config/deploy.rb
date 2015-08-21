@@ -10,7 +10,8 @@ require 'mina/git'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, 'www.rails365.com'
+set :user, 'yinsigan'
+set :domain, 'rails365.net'
 set :deploy_to, '/home/yinsigan/rails365'
 set :repository, 'git@github.com:yinsigan/rails365.git'
 set :branch, 'master'
