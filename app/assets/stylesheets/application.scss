@@ -1,19 +1,62 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
 @import "spacelab_variables";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+$c3:#333;
+$c6:#666;
+$c9:#999;
+
+.error-wrap{
+  border-top: 1px solid #efefef;
+  padding: 20px 0;
+  .container{
+    padding: 130px 0;
+    border: 1px solid #efefef;
+    background-color: #fff;
+  }
+}
+
+.error-box{
+  width: 460px;
+  margin: 0 auto;
+  strong{
+    font-size: 72px;
+    line-height: 1;
+  }
+  p{
+    color: $c6;
+    font-weight: bold;
+
+    margin:10px 0 20px;
+  }
+  li{
+    color: $c9;
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+.error-500{
+  strong{
+    color: #04adf0;
+  }
+}
+
+.error-404{
+  strong{
+    color: #858585;
+
+  }
+  em{
+    color: #e74141;
+  }
+  span{
+    display: block;
+    color: $c6;
+  }
+  .return{
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ececec;
+  }
+}

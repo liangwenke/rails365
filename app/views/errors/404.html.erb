@@ -1,0 +1,28 @@
+<div class="error-wrap">
+    <div class="container">
+        <div class="error-box error-404">
+            <div class="col-sm-4">
+                <i class="icon icon-sad"></i>
+            </div>
+            <div class="col-sm-8">
+                <strong>Error,<em>404</em></strong>
+                <p>您所查看的也没无法浏览或已经不存在</p>
+                <span>输入的地址不正确</span>
+                <span>页面重定义或程序出错</span>
+               <div class="return">
+                   <a href="/"> 返回首页 &raquo;</a>  <em class="red" id="digest">5</em> 秒之后页面自动跳转...
+               </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+<script>
+    window.setTimeout(function(){
+        window.location.href="<%= root_url %>"
+    }, 5000);
+    window.setInterval(function() {
+      $("#digest").text($("#digest").text() - 1);
+    }, 1000);
+</script>
