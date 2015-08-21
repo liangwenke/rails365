@@ -21,6 +21,7 @@ gem 'figaro'
 
 # for deploy
 gem 'mina', require: false
+gem 'unicorn'
 gem 'mina-unicorn', :require => false
 
 group :development, :test do
