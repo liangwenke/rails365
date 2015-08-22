@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     get code, to: "errors#show", code: code
   end
 
-  resources :photos, only: [:create]
+  patch '/photos', to: "photos#create"
 end

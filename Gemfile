@@ -25,6 +25,7 @@ gem 'figaro', '~> 1.1.1'
 
 # file upload
 gem 'carrierwave', '~> 0.10.0'
+gem "jquery-fileupload-rails"
 
 # for deploy
 gem 'mina', require: false

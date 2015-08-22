@@ -24,3 +24,10 @@
   .form-group
     .col-sm-10.col-sm-offset-2
       = f.submit "save", class: "btn btn-primary"
+
+coffee:
+  jQuery ->
+    $("#image").fileupload
+      url: "/photos"
+      type: "PATCH"
+    
