@@ -15,14 +15,23 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'slim-rails', '~> 3.0.1'
+
+# markdown
 gem 'redcarpet', '~> 3.3.2'
 gem 'rouge', '~> 1.9.1'
-gem 'figaro'
+
+# configuration
+gem 'figaro', '~> 1.1.1'
+
+# file upload
+gem 'carrierwave', '~> 0.10.0'
 
 # for deploy
 gem 'mina', require: false
-gem 'unicorn'
+gem 'unicorn', '~> 4.9.0'
 gem 'mina-unicorn', :require => false
+
+gem 'awesome_print'
 
 group :development, :test do
   gem 'byebug'
@@ -34,4 +43,5 @@ end
 
 group :development do
   gem 'quiet_assets'
+  gem 'pry'
 end
