@@ -35,8 +35,7 @@ coffee:
       $("#image-upload").removeClass('glyphicon-picture').addClass('glyphicon-hourglass')
     ).bind('fileuploaddone', (e, data) ->
       $("#image-upload").removeClass('glyphicon-hourglass').addClass('glyphicon-picture')
-      $("#article_body").html(data.result)
+      $("#article_body").insertAtCaret(data.result);
     ).fileupload
       url: "/photos"
       type: "PATCH"
-    

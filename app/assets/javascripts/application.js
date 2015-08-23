@@ -14,4 +14,3 @@
 //= require jquery_ujs
 //= require jquery-fileupload/basic
 //= require jquery.caret
-//= require_tree .
