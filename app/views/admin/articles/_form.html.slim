@@ -20,6 +20,10 @@
     .col-sm-10
       = f.text_area :body, class: "form-control", rows: 20
   .form-group
+    = f.label :group_id, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.select :group_id, Group.all.collect { |p| [ p.name, p.id ] }, include_blank: true
+  .form-group
     = f.label :published, class: "col-sm-2 control-label"
     .col-sm-10
       = f.check_box :published
