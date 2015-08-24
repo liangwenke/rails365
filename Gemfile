@@ -18,7 +18,7 @@ gem 'slim-rails', '~> 3.0.1'
 
 # markdown
 gem 'redcarpet', '~> 3.3.2'
-gem 'rouge', '~> 1.9.1'
+gem 'rouge', github: "stanhu/rouge"
 
 # configuration
 gem 'figaro', '~> 1.1.1'
@@ -39,6 +39,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails', '~> 3.3.3'
+  gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.5.0'
 end
 

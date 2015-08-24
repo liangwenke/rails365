@@ -5,7 +5,7 @@ module MyMarkdown
       hard_wrap:       true,
       link_attributes: { rel: 'nofollow' }
     }
-    renderer = HTML.new(render_options)
+    renderer = Redcarpet::Render::CodeHTML.new(render_options)
 
     extensions = {
       autolink:           true,
