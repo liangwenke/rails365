@@ -25,8 +25,8 @@ gem 'figaro', '~> 1.1.1'
 
 # file upload
 gem 'carrierwave', '~> 0.10.0'
-gem "jquery-fileupload-rails"
-gem 'carrierwave-aliyun'
+gem "jquery-fileupload-rails", '~> 0.4.5'
+gem 'carrierwave-aliyun', '~> 0.3.5'
 
 # for deploy
 gem 'mina', require: false
@@ -40,7 +40,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails', '~> 3.3.3'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.4.1'
   gem 'factory_girl_rails', '~> 4.5.0'
 end
 
