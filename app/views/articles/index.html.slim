@@ -11,7 +11,7 @@
       span.label.label-default = link_to article.group.try(:name), group_path(article.group)
     span.text-muted
       | *创建于
-      = article.created_at.to_date
+      = I18n.localize(article.created_at.to_date, :format => :long)
     - if session[:admin]
       span.label.label-default = article.published
       = link_to 'Destroy', [:admin, article], method: :delete, data: { confirm: 'Are you sure?' }
