@@ -33,7 +33,8 @@ gem 'mina', require: false
 gem 'unicorn', '~> 4.9.0'
 gem 'mina-unicorn', :require => false
 
-gem 'awesome_print'
+gem 'kaminari', '~> 0.16.3'
+gem 'awesome_print', '~> 1.6.1'
 
 group :development, :test do
   gem 'byebug'
