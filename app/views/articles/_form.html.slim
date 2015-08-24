@@ -29,6 +29,8 @@
 
 coffee:
   jQuery ->
+    FormStorage.init()
+    FormStorage.restore()
     $("#image-upload").on 'click', ->
       $("#image").click()
     $("#image").bind('fileuploadadd', (e, data) ->
