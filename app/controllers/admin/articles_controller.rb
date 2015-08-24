@@ -1,7 +1,4 @@
-class Admin::ArticlesController < ApplicationController
-  USERS = { ENV["USERNAME"] => ENV['PASSWORD'] }
- 
-  before_action :authenticate
+class Admin::ArticlesController < Admin::BaseController
   before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
@@ -11,7 +8,6 @@ class Admin::ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    render 'articles/new'
   end
 
   def create
@@ -29,7 +25,6 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def edit
-    render "articles/edit"
   end
 
   def update
@@ -53,19 +48,12 @@ class Admin::ArticlesController < ApplicationController
   end
 
 private
- 
-    def authenticate
-      authenticate_or_request_with_http_digest do |username|
-        session[:admin] = true 
-        USERS[username]
-      end
-    end
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-    def set_article
-      @article = Article.find(params[:id])
-    end
+  def article_params
+    params.require(:article).permit(:title, :body, :published)
+  end
 
-    def article_params
-      params.require(:article).permit(:title, :body, :published)
-    end
 end

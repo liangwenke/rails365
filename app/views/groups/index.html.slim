@@ -1,0 +1,9 @@
+.page-header
+  h2 所有分组
+
+- @groups.each do |group|
+  h2 = link_to group.name, group
+  p.text-muted.pull-right
+    = group.created_at.to_date
+    - if session[:admin]
+      = link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }

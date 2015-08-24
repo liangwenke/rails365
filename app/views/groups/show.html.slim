@@ -1,8 +1,8 @@
 .page-header
-  h2 所有文章
+  h2 = @group.name
 
-- @articles.each do |article|
-  h2 = link_to article.title, article
+- @group.articles.each do |article|
+  h2 = link_to article.name, article
   p.text-muted.pull-right
     = article.created_at.to_date
     - if session[:admin]

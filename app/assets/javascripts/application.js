@@ -15,3 +15,5 @@
 //= require jquery-fileupload/basic
 //= require jquery.caret
 //= require form_storage
+//= require bootstrap/dropdown
+//= require bootstrap/collapse

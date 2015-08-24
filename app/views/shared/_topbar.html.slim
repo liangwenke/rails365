@@ -39,21 +39,21 @@ nav.navbar.navbar-inverse
           input.form-control placeholder="Search" type="text" /
       - if session[:admin]
         ul.nav.navbar-nav.navbar-right
-          li
-            a href="/admin/articles/new"  添加新文章
-        /li.dropdown
-        /  a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
-        /    | Dropdown
-        /    span.caret
-        /  ul.dropdown-menu
-        /    li
-        /      a href="#"  Action
-        /    li
-        /      a href="#"  Another action
-        /    li
-        /      a href="#"  Something else here
-        /    li.divider role="separator"
-        /    li
-        /      a href="#"  Separated link
+          /li
+          /  a href="/admin/articles/new"  添加新文章
+          li.dropdown
+            a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+              | 管理操作
+              span.caret
+            ul.dropdown-menu
+              li
+                a href="/admin/articles" 文章
+              li
+                a href="/admin/groups" 分组
+              /li
+              /  a href="#"  Something else here
+              /li.divider role="separator"
+              /li
+              /  a href="#"  Separated link
     /! /.navbar-collapse
   /! /.container-fluid
