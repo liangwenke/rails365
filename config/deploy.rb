@@ -9,6 +9,7 @@ set :domain, 'rails365.net'
 set :deploy_to, '/home/yinsigan/rails365'
 set :repository, 'git@github.com:yinsigan/rails365.git'
 set :branch, 'master'
+set :term_mode, nil
 
 task :environment do
   invoke :'rbenv:load'
