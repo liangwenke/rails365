@@ -9,4 +9,4 @@
   p.text-muted.pull-right
     = group.created_at.to_date
     - if session[:admin]
-      = link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }
+      = link_to 'Destroy', [:admin, group], method: :delete, data: { confirm: 'Are you sure?' }
