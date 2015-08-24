@@ -2,7 +2,7 @@ class Admin::ArticlesController < Admin::BaseController
   before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.all
+    @articles = Article.includes(:group)
     render 'articles/index'
   end
 
