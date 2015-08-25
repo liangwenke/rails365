@@ -46,6 +46,7 @@ task :deploy => :environment do
 
   end
   deploy do
+    invoke :'sidekiq:quiet'
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
