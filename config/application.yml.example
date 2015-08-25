@@ -7,3 +7,4 @@ aliyun_bucket: 'your bucket name'
 aliyun_area: "cn-shenzhen"
 # 设置阿里云自定义域名
 aliyun_host: "http://aliyun.rails365.net"
+oneapm_license_key: "your oneapm license key"
