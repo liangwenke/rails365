@@ -3,6 +3,7 @@ require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'
 require 'mina/unicorn'
+require 'mina_sidekiq/tasks'
 
 set :user, 'yinsigan'
 set :domain, 'rails365.net'
@@ -15,7 +16,7 @@ task :environment do
   invoke :'rbenv:load'
 end
 
-set :shared_paths, ['config/database.yml', 'config/application.yml', 'log', 'tmp/sockets', 'tmp/pids']
+set :shared_paths, ['config/database.yml', 'config/application.yml', 'log', 'tmp/sockets', 'tmp/pids', 'pids']
 
 task :setup => :environment do
   queue! %[mkdir -p "#{deploy_to}/#{shared_path}/log"]
@@ -35,6 +36,8 @@ task :setup => :environment do
 
   queue! %[mkdir -p "#{deploy_to}/#{shared_path}/tmp/pids"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/tmp/pids"]
+
+  queue! %[mkdir -p "#{deploy_to}/shared/pids/"]
 end
 
 desc "Deploys the current version to the server."
@@ -52,6 +55,7 @@ task :deploy => :environment do
 
     to :launch do
       invoke :'unicorn:restart'
+      invoke :'sidekiq:restart'
     end
   end
 end
