@@ -2,7 +2,7 @@ class Admin::ExceptionLogsController < Admin::BaseController
   before_action :set_admin_exception_log, only: [:show, :destroy]
 
   def index
-    @admin_exception_logs = Admin::ExceptionLog.page(params[:page]).per(20)
+    @admin_exception_logs = Admin::ExceptionLog.order("id DESC").page(params[:page]).per(20)
   end
 
   def show

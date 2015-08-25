@@ -2,12 +2,14 @@ h2 所有exception_log
 
 table.table
   tr
+    th id
     th 时间
     th title
     th body
     th 操作
   - @admin_exception_logs.each do |admin_exception_log|
     tr
+      td = admin_exception_log.id
       td = I18n.localize(admin_exception_log.created_at.to_date, :format => :long)
       td = admin_exception_log.title
       td = link_to(truncate(admin_exception_log.body), admin_exception_log)
