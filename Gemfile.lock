@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/smartinez87/exception_notification.git
+  revision: 3c28eb54fb8c34300ade7209997f63b493b53c36
+  specs:
+    exception_notification (4.1.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
+
+GIT
   remote: git://github.com/stanhu/rouge.git
   revision: fafe6c111b7273b733908cc73e1ede43a94d5ce2
   specs:
@@ -261,6 +269,7 @@ DEPENDENCIES
   carrierwave-aliyun (~> 0.3.5)
   coffee-rails (~> 4.1.0)
   database_cleaner (~> 1.4.1)
+  exception_notification!
   factory_girl_rails (~> 4.5.0)
   figaro (~> 1.1.1)
   jbuilder (~> 2.0)

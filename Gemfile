@@ -44,6 +44,9 @@ gem 'rack-mini-profiler', require: false
 # background
 gem 'sidekiq'
 
+# notification
+gem 'exception_notification', github: 'smartinez87/exception_notification'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
