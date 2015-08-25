@@ -1,0 +1,8 @@
+p
+  strong Title:
+  = @admin_exception_log.title
+p
+  strong Body:
+  = simple_format @admin_exception_log.body
+
+= link_to 'Back', admin_exception_logs_path

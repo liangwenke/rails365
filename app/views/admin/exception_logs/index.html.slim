@@ -1,0 +1,15 @@
+h2 所有exception_log
+
+table.table
+  tr
+    th 时间
+    th title
+    th body
+    th 操作
+  - @admin_exception_logs.each do |admin_exception_log|
+    tr
+      td = I18n.localize(admin_exception_log.created_at.to_date, :format => :long)
+      td = admin_exception_log.title
+      td = link_to(truncate(admin_exception_log.body), admin_exception_log)
+      td = link_to 'Destroy', admin_exception_log, method: :delete, data: { confirm: 'Are you sure?' }
+= paginate @admin_exception_logs
