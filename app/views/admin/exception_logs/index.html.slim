@@ -10,7 +10,7 @@ table.table
   - @admin_exception_logs.each do |admin_exception_log|
     tr
       td = admin_exception_log.id
-      td = I18n.localize(admin_exception_log.created_at.to_date, :format => :long)
+      td = datetime admin_exception_log.created_at.to_date
       td = admin_exception_log.title
       td = link_to(truncate(admin_exception_log.body), admin_exception_log)
       td = link_to 'Destroy', admin_exception_log, method: :delete, data: { confirm: 'Are you sure?' }

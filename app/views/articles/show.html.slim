@@ -1,7 +1,8 @@
 .page-header
   h2 = @article.title
 div
-  - if session[:admin]
-    .text-right
+  .text-right
+    = datetime @article.created_at
+    - if session[:admin]
       = link_to "编辑", edit_admin_article_path(@article)
   = markdown @article.body
