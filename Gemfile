@@ -36,6 +36,7 @@ gem 'mina-unicorn', :require => false
 gem 'kaminari', '~> 0.16.3'
 gem 'awesome_print', '~> 1.6.1'
 gem 'oneapm_rpm'
+gem 'rack-mini-profiler', require: false
 
 group :development, :test do
   gem 'byebug'
