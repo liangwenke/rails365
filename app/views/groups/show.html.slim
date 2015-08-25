@@ -1,5 +1,7 @@
 .page-header
-  h2 = @group.name
+  h2
+    = @group.name
+    | (#{@group.articles_count})
 
 - @group.articles.each do |article|
   h2 = link_to article.title, article
