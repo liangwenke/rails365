@@ -1,9 +1,9 @@
 .page-header
-  h2 所有分组
+  h2 所有分类
 
 - if session[:admin]
   .text-right
-    = link_to "添加新分组", new_admin_group_path
+    = link_to "添加新分类", new_admin_group_path
 - @groups.each do |group|
   h2 = link_to group.name, group
   p.text-muted.pull-right
