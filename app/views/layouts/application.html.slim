@@ -10,4 +10,7 @@ body
 
   = render "shared/topbar"
   .container
+    .row
+      .col-md-12
+        = render 'shared/flash_messages'
     = yield

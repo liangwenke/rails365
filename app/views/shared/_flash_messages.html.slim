@@ -1,0 +1,18 @@
+- if flash.any?
+  #flash-messages
+    - if flash[:notice]
+      .alert.alert-info.alert-autocloseable-info.text-center
+        a.close data-dismiss='alert' x
+        = flash[:notice]
+    - if flash[:success]
+      .alert.alert-success.alert-autocloseable-success.text-center
+        a.close data-dismiss='alert' x
+        = flash[:success]
+    - if flash[:warning]
+      .alert.alert-warning.alert-autocloseable-warning.text-center
+        a.close data-dismiss='alert' x
+        = flash[:warning]
+    - if flash[:danger]
+      .alert.alert-danger.alert-autocloseable-danger.text-center
+        a.close data-dismiss='alert' x
+        = flash[:danger]

@@ -18,6 +18,7 @@ class Admin::ExceptionLogsController < Admin::BaseController
 
   def destroy_multiple
     Admin::ExceptionLog.delete(params[:admin_exception_log_ids])
+    flash[:danger] = '删除成功'
     redirect_to :back
   end
 
