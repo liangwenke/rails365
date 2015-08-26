@@ -53,7 +53,7 @@ private
   end
 
   def article_params
-    params.require(:article).permit(:title, :body, :published, :group_id)
+    params.require(:article).permit(:title, :body, :published, :group_id, :tag_list)
   end
 
 end
