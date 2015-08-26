@@ -1,17 +1,30 @@
 h2 所有exception_log
 
-table.table
-  tr
-    th id
-    th 时间
-    th title
-    th body
-    th 操作
-  - @admin_exception_logs.each do |admin_exception_log|
+= form_tag destroy_multiple_admin_exception_logs_path, method: :delete
+  table.table
+    p.text-right
+      button#destroy_multiple type="submit" class="btn btn-danger btn-sm" disabled="disabled"
+        |删除
     tr
-      td = admin_exception_log.id
-      td = datetime admin_exception_log.created_at.to_date
-      td = admin_exception_log.title
-      td = link_to(truncate(admin_exception_log.body), admin_exception_log)
-      td = link_to 'Destroy', admin_exception_log, method: :delete, data: { confirm: 'Are you sure?' }
+      th
+        input type="checkbox" id="checkAll" value="checkAll" class="check"
+        label for="checkAll"
+      th id
+      th 时间
+      th title
+      th body
+      th 操作
+    - @admin_exception_logs.each do |admin_exception_log|
+      tr
+        td = check_box_tag 'admin_exception_log_ids[]', admin_exception_log.id, nil, :id => "admin_exception_log_#{admin_exception_log.id}", class: "check"
+        td = admin_exception_log.id
+        td = datetime admin_exception_log.created_at.to_date
+        td = admin_exception_log.title
+        td = link_to(truncate(admin_exception_log.body), admin_exception_log)
+        td = link_to 'Destroy', admin_exception_log, method: :delete, data: { confirm: 'Are you sure?' }
 = paginate @admin_exception_logs
+
+coffee:
+  jQuery ->
+    $('#checkAll').checkAll('.check')
+    $(".check").checkDisable("#destroy_multiple")

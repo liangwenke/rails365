@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     root to: "articles#index"
     resources :articles, only: [:edit, :destroy, :index, :new, :update, :create]
     resources :groups, only: [:edit, :destroy, :index, :new, :update, :create]
-    resources :exception_logs, only: [:show, :destroy, :index]
+    resources :exception_logs, only: [:show, :destroy, :index] do
+      delete :destroy_multiple, on: :collection
+    end
   end
   %w(404 422 500).each do |code|
     get code, to: "errors#show", code: code

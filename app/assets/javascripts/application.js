@@ -17,3 +17,4 @@
 //= require form_storage
 //= require bootstrap/dropdown
 //= require bootstrap/collapse
+//= require jquery.checkall

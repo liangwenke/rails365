@@ -16,6 +16,11 @@ class Admin::ExceptionLogsController < Admin::BaseController
     end
   end
 
+  def destroy_multiple
+    Admin::ExceptionLog.delete(params[:admin_exception_log_ids])
+    redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_exception_log
