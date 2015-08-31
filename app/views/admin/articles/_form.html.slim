@@ -24,6 +24,10 @@
     .col-sm-10
       = f.select :group_id, Group.all.collect { |p| [ p.name, p.id ] }, include_blank: true
   .form-group
+    = f.label :tag_list, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :tag_list, class: "form-control"
+  .form-group
     = f.label :published, class: "col-sm-2 control-label"
     .col-sm-10
       = f.check_box :published

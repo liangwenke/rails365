@@ -47,6 +47,9 @@ gem 'sidekiq'
 # notification
 gem 'exception_notification', github: 'smartinez87/exception_notification'
 
+# tag
+gem 'acts-as-taggable-on', '~> 3.4'
+
 gem 'rack-google-analytics'
 
 group :development, :test do
