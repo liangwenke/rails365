@@ -36,6 +36,5 @@ module Rails365
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
     config.exceptions_app = self.routes
-    config.middleware.use Rack::GoogleAnalytics, :tracker => 'UA-66940824-1'
   end
 end
