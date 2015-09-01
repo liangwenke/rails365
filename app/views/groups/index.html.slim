@@ -7,6 +7,6 @@
 - @groups.each do |group|
   h2 = link_to group.name, group
   p.text-muted.pull-right
-    = group.created_at.to_date
+    = datetime group.created_at
     - if session[:admin]
       = link_to 'Destroy', [:admin, group], method: :delete, data: { confirm: 'Are you sure?' }

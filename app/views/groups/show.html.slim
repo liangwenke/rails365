@@ -3,7 +3,7 @@
     = @group.name
     | (#{@group.articles_count})
 
-- @group.articles.each do |article|
+- @group.articles.published.each do |article|
   h2 = link_to article.title, article
   p.text-muted.pull-right
     = article.created_at.to_date
