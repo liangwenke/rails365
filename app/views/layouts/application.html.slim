@@ -9,10 +9,11 @@ head
 body
 
   = render "shared/topbar"
-  .container
-    .row
-      .col-md-12
-        = render 'shared/flash_messages'
-    = yield
+  #content
+    .container
+      .row
+        .col-md-12
+          = render 'shared/flash_messages'
+      = yield
   = render 'shared/statistics'
   = render 'shared/footer'

@@ -2,7 +2,7 @@ class Admin::ArticlesController < Admin::BaseController
   before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.includes(:group).page(params[:page])
+    @articles = Article.includes(:group).order("id DESC").page(params[:page])
     render 'articles/index'
   end
 

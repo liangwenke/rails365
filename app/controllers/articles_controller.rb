@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show]
 
   def index
-    @articles = Article.published.includes(:group).page(params[:page])
+    @articles = Article.published.includes(:group).order("id DESC").page(params[:page])
   end
 
   def show
