@@ -53,6 +53,10 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # seo
 gem 'meta-tags', '~> 2.0.0'
 
+gem 'friendly_id', '~> 5.1.0'
+gem 'ruby-pinyin', '~> 0.4.6'
+gem 'babosa', '~> 1.0.2'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
