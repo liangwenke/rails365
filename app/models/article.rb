@@ -1,6 +1,7 @@
 require "babosa"
 class Article < ActiveRecord::Base
   acts_as_taggable
+  ActsAsTaggableOn.remove_unused_tags = true
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
   belongs_to :group, counter_cache: true
