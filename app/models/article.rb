@@ -16,4 +16,8 @@ class Article < ActiveRecord::Base
   def should_generate_new_friendly_id?
     title_changed?
   end
+
+  def tag_list
+    super.join(", ")
+  end
 end
