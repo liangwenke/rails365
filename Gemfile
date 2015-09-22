@@ -38,7 +38,7 @@ gem 'kaminari', '~> 0.16.3'
 gem 'awesome_print', '~> 1.6.1'
 
 # monitor
-gem 'oneapm_rpm', '~> 1.2.0'
+gem 'oneapm_rpm', '~> 1.2.2'
 gem 'rack-mini-profiler', require: false
 
 # background
