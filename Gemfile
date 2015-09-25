@@ -27,6 +27,7 @@ gem 'figaro', '~> 1.1.1'
 gem 'carrierwave', '~> 0.10.0'
 gem "jquery-fileupload-rails", '~> 0.4.5'
 gem 'carrierwave-aliyun', '~> 0.3.5'
+gem 'mini_magick', '~> 4.3.3'
 
 # for deploy
 gem 'mina', require: false

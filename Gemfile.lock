@@ -136,6 +136,7 @@ GEM
     mina-sidekiq (0.3.1)
       mina
     mina-unicorn (0.3.0)
+    mini_magick (4.3.3)
     mini_portile (0.6.2)
     minitest (5.8.0)
     multi_json (1.11.2)
@@ -293,6 +294,7 @@ DEPENDENCIES
   mina
   mina-sidekiq
   mina-unicorn
+  mini_magick (~> 4.3.3)
   oneapm_rpm (~> 1.2.2)
   pg (~> 0.16.0)
   pry
