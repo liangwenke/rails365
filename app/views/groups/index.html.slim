@@ -5,7 +5,7 @@
   .text-right
     = link_to "添加新分类", new_admin_group_path
 - @groups.each do |group|
-  h2 = link_to group.name, group
+  h2 = link_to "#{group.name}(#{group.articles_count})", group
   p.text-muted.pull-right
     = datetime group.created_at
     - if session[:admin]
