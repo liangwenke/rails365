@@ -34,9 +34,9 @@ nav.navbar.navbar-inverse
         /    li.divider role="separator"
         /    li
         /      a href="#"  One more separated link
-      form.navbar-form.navbar-left role="search"
+      = form_tag "/articles", method: "get", class: "navbar-form navbar-left", role: "search"
         .form-group
-          input.form-control placeholder="Search" type="text" /
+          input.form-control placeholder="Search" type="text" name="search" /
       - if session[:admin]
         ul.nav.navbar-nav.navbar-right
           /li

@@ -2,7 +2,11 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show]
 
   def index
-    @articles = Article.published.select(:title, :created_at, :published, :group_id, :slug, :id).includes(:group).order("id DESC").page(params[:page])
+    if params[:search].present?
+      @articles = Article.published.select(:title, :created_at, :published, :group_id, :slug, :id).includes(:group).search_by_title_or_body(params[:search]).order("id DESC").page(params[:page])
+    else
+      @articles = Article.published.select(:title, :created_at, :published, :group_id, :slug, :id).includes(:group).order("id DESC").page(params[:page])
+    end
     set_meta_tags title: '文章列表', description: "提供rails文章和视频教程，知识和信息交流", keywords: ActsAsTaggableOn::Tag.most_used.map(&:name).join(", ")
   end
 

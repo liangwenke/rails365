@@ -54,9 +54,13 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # seo
 gem 'meta-tags', '~> 2.0.0'
 
+# friendly url
 gem 'friendly_id', '~> 5.1.0'
 gem 'ruby-pinyin', '~> 0.4.6'
 gem 'babosa', '~> 1.0.2'
+
+# full text search
+gem 'pg_search'
 
 group :development, :test do
   gem 'byebug'
