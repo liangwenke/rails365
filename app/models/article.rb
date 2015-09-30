@@ -1,9 +1,14 @@
 require "babosa"
 class Article < ActiveRecord::Base
   include PgSearch
-  pg_search_scope :search_by_title_or_body, :against => [:title, :body], :associated_against => {
-    :tags => [:name],
-  }
+  pg_search_scope :search_by_title_or_body,
+                  :against => [:title, :body],
+                  :associated_against => {
+                    :tags => [:name],
+                  },
+                  :using => {
+                    :tsearch => {:dictionary => "testzhcfg"}
+                  }
   acts_as_taggable
   ActsAsTaggableOn.remove_unused_tags = true
   extend FriendlyId
