@@ -5,7 +5,10 @@
   .text-right
     = link_to "添加新文章", new_admin_article_path
 - @articles.each do |article|
-  h2 = link_to article.title, article
+  - if params[:search].present?
+    h2 = link_to article.title.html_safe, article, class: "search-hight-light"
+  - else
+    h2 = link_to article.title, article
   p.text-right
     - if article.group
       span.label.label-default = link_to article.group.try(:name), group_path(article.group)

@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:search].present?
-      @articles = Article.published.select(:title, :created_at, :published, :group_id, :slug, :id).includes(:group).search_by_title_or_body(params[:search]).order("id DESC").page(params[:page])
+      @articles = Article.published.select("ts_headline('testzhcfg', title, to_tsquery('testzhcfg', '#{params[:search]}'), 'StartSel=<span>, StopSel=</span>') AS title, created_at, published, group_id, slug, id").search_by_title_or_body(params[:search]).order("id DESC").page(params[:page])
     else
       @articles = Article.published.select(:title, :created_at, :published, :group_id, :slug, :id).includes(:group).order("id DESC").page(params[:page])
     end
