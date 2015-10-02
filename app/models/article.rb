@@ -2,7 +2,10 @@ require "babosa"
 class Article < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search_by_title_or_body,
-                  :against => [:title, :body],
+                  :against => {
+                    :title => 'A',
+                    :body => 'B'
+                  },
                   :associated_against => {
                     :tags => [:name],
                   },
