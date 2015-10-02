@@ -11,10 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904083945) do
+ActiveRecord::Schema.define(version: 20151002163721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
+  enable_extension "fuzzystrmatch"
+  enable_extension "zhparser"
 
   create_table "admin_exception_logs", force: :cascade do |t|
     t.string   "title"
@@ -61,6 +64,10 @@ ActiveRecord::Schema.define(version: 20150904083945) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "s", id: false, force: :cascade do |t|
+    t.text "nm"
   end
 
   create_table "taggings", force: :cascade do |t|
