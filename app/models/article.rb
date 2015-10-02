@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
                     :tags => [:name],
                   },
                   :using => {
-                    :tsearch => {:dictionary => "testzhcfg", :prefix => true}
+                    :tsearch => {:dictionary => "testzhcfg", :prefix => true, :negation => true}
                   }
   acts_as_taggable
   ActsAsTaggableOn.remove_unused_tags = true
