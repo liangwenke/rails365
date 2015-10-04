@@ -12,6 +12,8 @@ class ArticlesController < ApplicationController
 
   def show
     set_meta_tags title: @article.title, description: @article.title, keywords: @article.tag_list
+    @group_name = @article.group.try(:name) || ""
+    @recommend_articles = Article.published.select("ts_headline('testzhcfg', title, plainto_tsquery('testzhcfg', '#{@group_name}'), 'StartSel=<span>, StopSel=</span>') AS title, created_at, published, group_id, slug, id").search_by_title_or_body(@group_name).order("visit_count DESC").limit(10)
   end
 
   private

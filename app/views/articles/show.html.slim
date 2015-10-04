@@ -13,5 +13,5 @@
       .panel-heading
         div 相关推荐
       .panel-body
-        div ...
-
+        - @recommend_articles.each do |recommend_article|
+          div = link_to recommend_article.title, recommend_article
