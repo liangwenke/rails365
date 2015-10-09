@@ -36,6 +36,7 @@ gem 'mina-unicorn', :require => false
 gem 'mina-sidekiq', require: false
 
 gem 'kaminari', '~> 0.16.3'
+gem 'kaminari-i18n', '~> 0.3.2'
 gem 'awesome_print', '~> 1.6.1'
 
 # monitor
@@ -60,7 +61,7 @@ gem 'ruby-pinyin', '~> 0.4.6'
 gem 'babosa', '~> 1.0.2'
 
 # full text search
-gem 'pg_search'
+gem 'pg_search', '~> 1.0.5'
 
 group :development, :test do
   gem 'byebug'

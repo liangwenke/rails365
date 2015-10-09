@@ -4,6 +4,8 @@
 - if session[:admin]
   .text-right
     = link_to "添加新文章", new_admin_article_path
+.text-right
+  = page_entries_info @articles
 - @articles.each do |article|
   - if params[:search].present?
     h2 = link_to article.title.html_safe, article, class: "search-hight-light"

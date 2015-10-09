@@ -121,6 +121,9 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kaminari-i18n (0.3.2)
+      kaminari
+      rails
     kgio (2.9.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -294,6 +297,7 @@ DEPENDENCIES
   jquery-fileupload-rails (~> 0.4.5)
   jquery-rails
   kaminari (~> 0.16.3)
+  kaminari-i18n (~> 0.3.2)
   meta-tags (~> 2.0.0)
   mina
   mina-sidekiq
@@ -301,7 +305,7 @@ DEPENDENCIES
   mini_magick (~> 4.3.3)
   oneapm_rpm (~> 1.2.2)
   pg (~> 0.16.0)
-  pg_search
+  pg_search (~> 1.0.5)
   pry
   quiet_assets
   rack-mini-profiler
