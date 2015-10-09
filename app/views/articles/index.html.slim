@@ -2,13 +2,11 @@
   - if @tag.present?
     h2 标签<strong>#{@tag.name}</strong>下的所有文章
   - else
-    h2 所有文章
+    h2 所有文章(#{@articles.total_count})
 
 - if session[:admin]
   .text-right
     = link_to "添加新文章", new_admin_article_path
-.text-right
-  = page_entries_info @articles
 - @articles.each do |article|
   - if params[:search].present?
     h2 = link_to article.title.html_safe, article, class: "search-hight-light"
