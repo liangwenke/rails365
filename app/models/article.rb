@@ -23,11 +23,12 @@ class Article < ActiveRecord::Base
   validates :title, uniqueness: true
 
   def normalize_friendly_id(input)
-    PinYin.of_string(input).to_s.to_slug.normalize.to_s
+    "#{self.created_at.strftime('%Y-%m-%d')}-#{PinYin.of_string(input).to_s.to_slug.normalize.to_s}"
   end
 
   def should_generate_new_friendly_id?
-    title_changed?
+    # title_changed?
+    true
   end
 
   alias_method :old_tag_list, :tag_list
