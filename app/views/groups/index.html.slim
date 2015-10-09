@@ -1,12 +1,14 @@
 .page-header
-  h2 所有分类
+  h2 所有分类(#{@groups.count})
 
 - if session[:admin]
   .text-right
     = link_to "添加新分类", new_admin_group_path
-- @groups.each do |group|
-  h2 = link_to "#{group.name}(#{group.articles_count})", group
-  p.text-muted.pull-right
-    = datetime group.created_at
-    - if session[:admin]
-      = link_to 'Destroy', [:admin, group], method: :delete, data: { confirm: 'Are you sure?' }
+- @groups.in_groups_of(4) do |per_group|
+  .row
+    - per_group.each do |group|
+      - if group.present?
+        .col-sm-3
+          h3 = link_to "#{group.name}(#{group.articles_count})", group
+          - if session[:admin]
+            = link_to 'Destroy', [:admin, group], method: :delete, data: { confirm: 'Are you sure?' }

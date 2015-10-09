@@ -1,0 +1,10 @@
+.page-header
+  h2 所有标签(#{@tags.count})
+
+- @tags.in_groups_of(4) do |tags_group|
+  .row
+    - tags_group.each do |tag|
+      - if tag.present?
+        .col-sm-3
+          h3
+            = link_to "#{tag.name}(#{tag.taggings_count})", tag_path(tag.id)

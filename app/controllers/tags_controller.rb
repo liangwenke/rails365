@@ -1,4 +1,4 @@
-class Admin::TagsController < Admin::BaseController
+class TagsController < ApplicationController
   def index
     @tags = ActsAsTaggableOn::Tag.all
   end

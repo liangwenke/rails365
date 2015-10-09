@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :articles, only: [:show, :index]
   resources :groups, only: [:show, :index]
+  resources :tags, only: [:index]
   root to: 'articles#index'
   namespace :admin do
     root to: "articles#index"
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
     resources :exception_logs, only: [:show, :destroy, :index] do
       delete :destroy_multiple, on: :collection
     end
-    resources :tags, only: [:index, :show]
   end
   %w(404 422 500).each do |code|
     get code, to: "errors#show", code: code
