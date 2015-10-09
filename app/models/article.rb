@@ -27,8 +27,7 @@ class Article < ActiveRecord::Base
   end
 
   def should_generate_new_friendly_id?
-    # title_changed?
-    true
+    title_changed?
   end
 
   alias_method :old_tag_list, :tag_list
