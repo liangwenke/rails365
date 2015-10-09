@@ -18,6 +18,7 @@ class Article < ActiveRecord::Base
   friendly_id :title, use: [:slugged, :finders]
   belongs_to :group, counter_cache: true
   scope :published, -> { where(published: true) }
+  scope :except_body_with_default, -> { published.select(:title, :created_at, :published, :group_id, :slug, :id).includes(:group) }
   validates :title, :body, presence: true
   validates :title, uniqueness: true
 
@@ -29,7 +30,9 @@ class Article < ActiveRecord::Base
     title_changed?
   end
 
+  alias_method :old_tag_list, :tag_list
   def tag_list
     super.join(", ")
   end
+
 end

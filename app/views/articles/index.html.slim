@@ -1,5 +1,8 @@
 .page-header
-  h2 所有文章
+  - if @tag.present?
+    h2 标签<span class='text-info'>#{@tag.name}</span>下的所有文章
+  - else
+    h2 所有文章
 
 - if session[:admin]
   .text-right
@@ -11,6 +14,8 @@
     h2 = link_to article.title.html_safe, article, class: "search-hight-light"
   - else
     h2 = link_to article.title, article
+  p.text-right
+    = raw article.tags.map { |t| link_to t.name, tag_path(t.id) }.join(', ')
   p.text-right
     - if article.group
       span.label.label-default = link_to article.group.try(:name), group_path(article.group)

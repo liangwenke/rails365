@@ -6,6 +6,7 @@
       = datetime @article.created_at
       - if session[:admin]
         = link_to "编辑", edit_admin_article_path(@article)
+.row
   .col-md-8
     = markdown @article.body
   .col-md-4
@@ -15,3 +16,10 @@
       .panel-body
         - @recommend_articles.each do |recommend_article|
           div = link_to recommend_article.title, recommend_article
+    .panel.panel-default
+      .panel-heading
+        div 标签
+      .panel-body
+        - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
+          div
+            = link_to tag.name, tag_path(tag.id), class: css_class
