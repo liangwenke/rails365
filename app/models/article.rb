@@ -22,8 +22,15 @@ class Article < ActiveRecord::Base
   validates :title, :body, presence: true
   validates :title, uniqueness: true
 
+  after_create :set_friendly_id
+
   def normalize_friendly_id(input)
-    "#{self.created_at.strftime('%Y-%m-%d')}-#{PinYin.of_string(input).to_s.to_slug.normalize.to_s}"
+    PinYin.of_string(input).to_s.to_slug.normalize.to_s
+  end
+
+  def set_friendly_id
+    self.slug = "#{created_at.strftime('%Y-%m-%d')}-#{self.slug}"
+    self.save(validate: false)
   end
 
   def should_generate_new_friendly_id?
