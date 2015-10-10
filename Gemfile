@@ -63,6 +63,8 @@ gem 'babosa', '~> 1.0.2'
 # full text search
 gem 'pg_search', '~> 1.0.5'
 
+gem 'rails-i18n', '~> 4.0.4'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
