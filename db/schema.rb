@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002163721) do
+ActiveRecord::Schema.define(version: 20151009094300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "zhparser"
+  enable_extension "hstore"
   enable_extension "pg_trgm"
   enable_extension "fuzzystrmatch"
-  enable_extension "zhparser"
+  enable_extension "ltree"
+
+  create_table "admin_backup_notifiers", force: :cascade do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admin_exception_logs", force: :cascade do |t|
     t.string   "title"
@@ -26,19 +34,36 @@ ActiveRecord::Schema.define(version: 20151002163721) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "published",   default: false
-    t.integer  "group_id"
-    t.integer  "visit_count", default: 0
-    t.string   "slug"
+# Could not dump table "articles" because of following StandardError
+#   Unknown type 'article_status' for column 'status'
+
+  create_table "capitals", id: false, force: :cascade do |t|
+    t.text    "name"
+    t.float   "population"
+    t.integer "altitude"
+    t.string  "state",      limit: 2
   end
 
-  add_index "articles", ["group_id"], name: "index_articles_on_group_id", using: :btree
-  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
+  create_table "cities", id: false, force: :cascade do |t|
+    t.text    "name"
+    t.float   "population"
+    t.integer "altitude"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "employees", ["company_id"], name: "index_employees_on_company_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -66,10 +91,6 @@ ActiveRecord::Schema.define(version: 20151002163721) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "s", id: false, force: :cascade do |t|
-    t.text "nm"
-  end
-
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -90,5 +111,13 @@ ActiveRecord::Schema.define(version: 20151002163721) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
+  create_table "test", id: false, force: :cascade do |t|
+    t.ltree "path"
+  end
+
+  add_index "test", ["path"], name: "path_gist_idx", using: :gist
+  add_index "test", ["path"], name: "path_idx", using: :btree
+
   add_foreign_key "articles", "groups"
+  add_foreign_key "employees", "companies"
 end

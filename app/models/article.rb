@@ -15,7 +15,7 @@ class Article < ActiveRecord::Base
   acts_as_taggable
   ActsAsTaggableOn.remove_unused_tags = true
   extend FriendlyId
-  friendly_id :title, use: [:slugged, :finders]
+  friendly_id :title, use: [:slugged, :finders, :history]
   belongs_to :group, counter_cache: true
   scope :published, -> { where(published: true) }
   scope :except_body_with_default, -> { published.select(:title, :created_at, :published, :group_id, :slug, :id).includes(:group) }
