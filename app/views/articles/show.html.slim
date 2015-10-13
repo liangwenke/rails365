@@ -9,6 +9,8 @@
 .row
   .col-md-8
     = markdown @article.body
+    hr
+    = render 'disqus'
   .col-md-4
     .panel.panel-default
       .panel-heading
@@ -24,4 +26,3 @@
           div
             = link_to tag.name, tag_path(tag.id), class: css_class
 
-= render 'disqus'
