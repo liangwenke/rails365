@@ -1,5 +1,5 @@
 if ENV['RUBYTAOBAO']
-  source 'http://ruby.taobao.org'
+  source 'https://ruby.taobao.org'
 else
   source 'https://rubygems.org'
 end
