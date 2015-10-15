@@ -3,6 +3,9 @@
     = @group.name
     | (#{@group.articles_count})
 
+.text-right
+  = link_to '编辑', edit_admin_group_path(@group)
+
 - @group.articles.published.each do |article|
   h2 = link_to article.title, article
   p.text-muted.pull-right
