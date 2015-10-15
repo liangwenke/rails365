@@ -16,10 +16,6 @@ class Article < ActiveRecord::Base
   ActsAsTaggableOn.remove_unused_tags = true
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders, :history]
-  include OrderQuery
-  order_query :order_title,
-    [:visit_count, :desc],
-    [:id, :desc]
   belongs_to :group, counter_cache: true
   scope :published, -> { where(published: true) }
   scope :except_body_with_default, -> { published.select(:title, :created_at, :published, :group_id, :slug, :id).includes(:group) }
