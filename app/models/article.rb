@@ -16,6 +16,10 @@ class Article < ActiveRecord::Base
   ActsAsTaggableOn.remove_unused_tags = true
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders, :history]
+  include OrderQuery
+  order_query :order_title,
+    [:visit_count, :desc],
+    [:id, :desc]
   belongs_to :group, counter_cache: true
   scope :published, -> { where(published: true) }
   scope :except_body_with_default, -> { published.select(:title, :created_at, :published, :group_id, :slug, :id).includes(:group) }
@@ -26,7 +30,7 @@ class Article < ActiveRecord::Base
     date = if self.created_at.present?
              created_at.strftime('%Y-%m-%d')
            else
-             Time.now.strftime('%Y-%m-%d')
+             Time.zone.now.strftime('%Y-%m-%d')
            end
     "#{date}-#{PinYin.of_string(input).to_s.to_slug.normalize.to_s}"
   end
