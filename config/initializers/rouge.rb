@@ -23,6 +23,12 @@ module Redcarpet
         # because when you not provide language in Markdown
         # you will get error: <RuntimeError: unknown lexer >
       end
+
+      def table(header, body)
+        "<table class=\"table table-bordered\">" \
+          "#{header}#{body}" \
+        "</table>"
+      end
     end
   end
 end

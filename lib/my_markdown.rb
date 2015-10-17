@@ -13,7 +13,8 @@ module MyMarkdown
       lax_spacing:        true,
       no_intra_emphasis:  true,
       strikethrough:      true,
-      superscript:        true
+      superscript:        true,
+      tables:             true
     }
     Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
   end
