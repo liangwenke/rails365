@@ -17,7 +17,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'slim-rails', '~> 3.0.1'
 
 # markdown
-gem 'redcarpet', '~> 3.3.2'
+gem 'redcarpet', '~> 3.3.3'
 gem 'rouge', github: "stanhu/rouge"
 
 # configuration
@@ -44,7 +44,7 @@ gem 'oneapm_rpm', '~> 1.2.2'
 gem 'rack-mini-profiler', require: false
 
 # background
-gem 'sidekiq', '~> 3.4.2'
+gem 'sidekiq', '~> 3.5.1'
 
 # notification
 gem 'exception_notification', github: 'smartinez87/exception_notification'
