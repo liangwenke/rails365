@@ -75,6 +75,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rails_db'
   gem 'quiet_assets'
   gem 'pry'
 end
