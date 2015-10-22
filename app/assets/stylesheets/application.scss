@@ -90,3 +90,15 @@ $c9:#999;
 .css2 { font-size: 1.2em; }
 .css3 { font-size: 1.4em; }
 .css4 { font-size: 1.6em; }
+
+.nav-justified > li.footer-list > a, .nav-tabs.nav-justified > li.footer-list > a {
+  &:hover {
+    color: #ddd;
+    background-color: #446E9B;
+  }
+  color: #ddd;
+}
+
+.footer-navbar {
+  margin-bottom: 0;
+}
