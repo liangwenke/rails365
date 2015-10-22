@@ -7,6 +7,7 @@
 #= require bootstrap/collapse
 #= require bootstrap/alert
 #= require jquery.checkall
+#= require qrcode
 
 # jQuery ->
 #   flash = [

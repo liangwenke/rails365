@@ -14,6 +14,11 @@
   .col-md-4
     .panel.panel-default
       .panel-heading
+        div 扫一扫分享到微信
+      .panel-body
+        #qrcode
+    .panel.panel-default
+      .panel-heading
         div 相关推荐
       .panel-body
         - @recommend_articles.each do |recommend_article|
@@ -26,3 +31,10 @@
           div
             = link_to tag.name, tag_path(tag.id), class: css_class
 
+javascript:
+  $(document).ready(function() {
+    new QRCode(document.getElementById("qrcode"), {
+      text: "#{article_url(@article)}",
+      width: 128,
+      height: 128});
+  });
