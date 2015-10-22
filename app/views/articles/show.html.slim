@@ -17,7 +17,7 @@
         div 相关推荐
       .panel-body
         - @recommend_articles.each do |recommend_article|
-          div = link_to recommend_article.title, recommend_article
+          div = link_to truncate(recommend_article.title), recommend_article
     .panel.panel-default
       .panel-heading
         div 标签
