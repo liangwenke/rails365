@@ -1,0 +1,33 @@
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        div 最近的文章
+      .panel-body
+        - @articles.each do |article|
+          p.clearfix
+            span.pull-right = datetime article.created_at
+            = link_to article.title, article_path(article)
+
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        div 最新门的文章
+      .panel-body
+        - @hot_articles.each do |article|
+          p.clearfix
+            span.pull-right = article.visit_count
+            = link_to article.title, article_path(article)
+
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        div 所有的分类
+      .panel-body
+        - @groups.in_groups_of(4) do |per_group|
+          .row
+            - per_group.each do |group|
+              - if group.present?
+                .col-sm-3
+                  h3 = link_to "#{group.name}(#{group.articles_count})", group

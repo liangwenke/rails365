@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :articles, only: [:show, :index]
   resources :groups, only: [:show, :index]
   resources :tags, only: [:index]
-  root to: 'articles#index'
+  root to: 'home#index'
   namespace :admin do
     root to: "articles#index"
     resources :articles, only: [:edit, :destroy, :index, :new, :update, :create]
