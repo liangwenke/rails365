@@ -11,13 +11,13 @@ nav.navbar.navbar-inverse
     /! Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li.active
+        li class="#{controller_name == 'articles' ? 'active' : nil}"
           a href="/articles"
             | 文章
             span.sr-only (current)
-        li
+        li class="#{controller_name == 'groups' ? 'active' : nil}"
           a href="/groups" 分类
-        li
+        li class="#{controller_name == 'tags' ? 'active' : nil}"
           a href="/tags" 标签
         /li.dropdown
         /  a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
