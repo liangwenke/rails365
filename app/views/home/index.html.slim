@@ -30,4 +30,4 @@
             - per_group.each do |group|
               - if group.present?
                 .col-sm-3
-                  h3 = link_to "#{group.name}(#{group.articles_count})", group
+                  p = link_to "#{group.name}(#{group.articles_count})", group
