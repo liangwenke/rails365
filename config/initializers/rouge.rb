@@ -29,6 +29,10 @@ module Redcarpet
           "#{header}#{body}" \
         "</table>"
       end
+
+      def header(text, header_level)
+        "<h#{header_level} class='markdown_header'>#{text}</h#{header_level}>"
+      end
     end
   end
 end
