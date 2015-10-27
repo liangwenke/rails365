@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   def show
     set_meta_tags title: @article.title, description: @article.title, keywords: @article.tag_list
     @group_name = @article.group.try(:name) || ""
-    @recommend_articles = Article.except_body_with_default.search_by_title_or_body(@group_name).order("visit_count DESC").limit(10)
+    @recommend_articles = Article.except_body_with_default.search_by_title_or_body(@group_name).order("visit_count DESC").limit(11)
     @tags = @article.tag_counts_on(:tags)
   end
 

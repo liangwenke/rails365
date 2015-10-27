@@ -22,7 +22,8 @@
         div 相关推荐
       .panel-body
         - @recommend_articles.each do |recommend_article|
-          p = link_to recommend_article.title, recommend_article
+          - unless recommend_article.id == @article.id
+            p = link_to recommend_article.title, recommend_article
     .panel.panel-default
       .panel-heading
         div 标签
