@@ -18,7 +18,7 @@ h2 所有异常
       tr
         td = check_box_tag 'admin_exception_log_ids[]', admin_exception_log.id, nil, :id => "admin_exception_log_#{admin_exception_log.id}", class: "check"
         td = admin_exception_log.id
-        td = datetime admin_exception_log.created_at.to_date
+        td = datetime admin_exception_log.created_at
         td = admin_exception_log.title
         td = link_to(truncate(admin_exception_log.body), admin_exception_log)
         td = link_to 'Destroy', admin_exception_log, method: :delete, data: { confirm: 'Are you sure?' }
