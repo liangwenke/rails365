@@ -8,6 +8,7 @@
 #= require bootstrap/alert
 #= require jquery.checkall
 #= require qrcode
+#= require jquery.fluidbox.min
 
 # jQuery ->
 #   flash = [

@@ -30,6 +30,13 @@ module Redcarpet
         "</table>"
       end
 
+      def image(link, title, content)
+        content &&= content + " "
+        "<a href='#{link.sub("preview_", "")}' class='fluidbox-link'>" \
+          "<img src='#{content}#{link}' />" \
+        "</a>"
+      end
+
       def header(text, header_level)
         "<h#{header_level} class='markdown_header'>#{text}</h#{header_level}>"
       end

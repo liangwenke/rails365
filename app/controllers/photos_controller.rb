@@ -3,6 +3,6 @@ class PhotosController < ApplicationController
     @photo = Photo.new
     @photo.image = params[:image]
     @photo.save
-    render text: @photo.image.url
+    render text: @photo.image_url(:preview).to_s
   end
 end

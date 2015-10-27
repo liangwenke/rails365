@@ -32,7 +32,9 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  process resize_to_limit: [750, nil]
+  version :preview do
+    process resize_to_limit: [750, nil]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -48,7 +50,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   def filename
     if super.present?
       # current_path 是 Carrierwave 上传过程临时创建的一个文件，有时间标记，所以它将是唯一的
-      @name ||= Digest::MD5.hexdigest(current_path)
+      @name ||= Digest::MD5.hexdigest(original_filename)
       "#{Time.zone.now.year}/#{@name}.#{file.extension.downcase}"
     end
   end
